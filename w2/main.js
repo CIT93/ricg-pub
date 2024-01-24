@@ -1,15 +1,15 @@
 //variables
-let householdMembers = 10;
-let houseSize = 4;
-let foodChoices = 14;
-let waterConsumption = 2;
-let newHouseItems = 4;
-let wasteProduced = 20;
-let wasteRecycled = 4;
-let transportationScore = 4;
+const householdMembers = 10;
+const houseSize = 4;
+const foodChoices = 14;
+const waterConsumption = 2;
+const newHouseItems = 4;
+const wasteProduced = 20;
+const wasteRecycled = 4;
+const transportationScore = 4;
 
 //Addition
-let carbonFootprintNumber = householdMembers
+const carbonFootprintNumber = householdMembers
  + houseSize
  + foodChoices
  + waterConsumption
