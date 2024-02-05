@@ -44,7 +44,16 @@ function start(members,size){
 }
 
 function displayOutput(){
-    console.log(cfpData);
+    for (arr of cfpData){
+        console.log(arr);
+        const output = document.getElementById("output");
+        const newP = document.createElement("p");
+        if (arr[0]<7)
+            newP.textContent = `Carbon Footprint Total is ${arr[4]}. For a ${arr[1]} sized house (points:${arr[3]}) with ${arr[0]} members. (points:${arr[2]})`;
+        else
+            newP.textContent = `Carbon Footprint Total is ${arr[4]}. For a ${arr[1]} sized house (points:${arr[3]}) with 6 or more members. (points:${arr[2]})`;
+        output.appendChild(newP);
+    }
 }
 
 let calls = 0;
