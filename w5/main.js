@@ -42,7 +42,6 @@ function start(members,size){
     const totalCarbFtprPoints = houseMembPoints + houseSizePoints;
     cfpData.push([members,size,houseMembPoints,houseSizePoints,totalCarbFtprPoints]); 
 }
-
 /*
 function displayOutput(){
     for (arr of cfpData){
@@ -57,7 +56,6 @@ function displayOutput(){
     }
 }
 */
-
 function displayOutput(){
     for (arr of cfpData) {
         const output = document.getElementById("output");
