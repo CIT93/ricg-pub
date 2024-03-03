@@ -40,9 +40,18 @@ function start(members,size){
     const houseMembPoints = determineHouseMemPts(members);
     const houseSizePoints = determineHouseSizePts(size); 
     const totalCarbFtprPoints = houseMembPoints + houseSizePoints;
-    cfpData.push([members,size,houseMembPoints,houseSizePoints,totalCarbFtprPoints]); 
+    
+    cfpData.push({
+        memNum : members,
+        houseSize : size,
+        memPts : houseMembPoints,
+        sizePts : houseSizePoints,
+        total : totalCarbFtprPoints
+    });
+
 }
-/*
+
+/* my old one using for-of
 function displayOutput(){
     for (arr of cfpData){
         console.log(arr);
@@ -56,16 +65,17 @@ function displayOutput(){
     }
 }
 */
+
 function displayOutput(){
-    for (arr of cfpData) {
+    for (obj of cfpData) {// refactored standard for loop: for (let i=0; i<cfpData.length; i++) {
         const output = document.getElementById("output");
         const newH2 = document.createElement("h2");
-        newH2.textContent = `Carbon Footprint ${arr[4]}`;
+        newH2.textContent = `Carbon Footprint: ${obj.total}`;
         const newH3 = document.createElement("h3");
         newH3.textContent = `Based on number in and size of home`;
         const newP = document.createElement("p");
-        newP.textContent = `This number is based on the number of people in the house of ${arr[0]} (score: ${arr[3]}).`;
-        newP.textContent += ` and a ${arr[1]} size of home (score:${arr[2]}).`;
+        newP.textContent = `This number is based on the number of people in the house of ${obj.memNum} (score: ${obj.memPts}).`;
+        newP.textContent += ` and a "${obj.houseSize}" size of home (score:${obj.sizePts}).`;
         output.appendChild(newH2);
         output.appendChild(newH3);
         output.appendChild(newP);
@@ -73,7 +83,6 @@ function displayOutput(){
 }
 
 let calls = 0;
-
 for (let i = 0; i<4; i++){
     for (let j = 0; j<7; j++){
         switch(i){
@@ -93,8 +102,7 @@ for (let i = 0; i<4; i++){
         calls++;
     }
 }
-
 //number of calls
 console.log(`number of calls: ${calls}`);
 
-displayOutput()
+displayOutput();
